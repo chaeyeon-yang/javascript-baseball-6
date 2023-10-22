@@ -1,7 +1,5 @@
 ## 구현해야할 기능
 
----
-
 - 게임 시작하기
     - 각 자릿수의 값이 겹치지 않는 임의의 세 개의 숫자 정답 생성하기
     - 이때, 임의의 정답은 1~9사이의 숫자
@@ -18,3 +16,16 @@
 - 게임 종료하기
     - 사용자가 세 개의 숫자를 모두 맞히면 메세지와 함께 게임 종료하기
     - 게임이 종료된 후, 사용자의 입력 값(1 or 2)에 따라 게임을 다시 시작하거나 종료하기
+
+
+## 사용할 아키텍쳐
+
+- MVC 아키텍쳐
+    - Model, View, Controller의 영역으로 나뉘어진다.
+
+- 참고자료
+    - https://developer.mozilla.org/en-US/docs/Glossary/MVC
+
+    ![](https://developer.mozilla.org/en-US/docs/Glossary/MVC/model-view-controller-light-blue.png)
+
+
