@@ -26,6 +26,4 @@
 - 참고자료
     - https://developer.mozilla.org/en-US/docs/Glossary/MVC
 
-    ![](https://developer.mozilla.org/en-US/docs/Glossary/MVC/model-view-controller-light-blue.png)
-
 
