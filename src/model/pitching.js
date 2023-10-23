@@ -25,7 +25,7 @@ class Pitching {
 
   // 낫싱 여부를 판단하는 함수
   isNothing(userBall, computerBall) {
-    if (countStrike(userBall, computerBall) === 0 && countBall(userBall, computerBall)) {
+    if (!countStrike(userBall, computerBall) && !countBall(userBall, computerBall)) {
       return true;
     }
     return false;
