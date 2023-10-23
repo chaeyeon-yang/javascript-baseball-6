@@ -22,6 +22,14 @@ class Pitching {
     return BALL_COUNT;
     }
   }
+
+  // 낫싱 여부를 판단하는 함수
+  isNothing(userBall, computerBall) {
+    if (countStrike(userBall, computerBall) === 0 && countBall(userBall, computerBall)) {
+      return true;
+    }
+    return false;
+  }
 }
 
 export default Pitching;
