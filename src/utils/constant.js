@@ -11,7 +11,7 @@ const GAME_OPTION = {
 const GAME_MESSAGE = {
   start: '숫자 야구 게임을 시작합니다.',
   input: '숫자를 입력해주세요 : ',
-  success: '3개의 숫자를 모두 맞히셨습니다! 게임 종료',
+  success: `${BALL_SIZE}개의 숫자를 모두 맞히셨습니다! 게임 종료`,
   restart: '게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.'
 }
 
@@ -26,7 +26,7 @@ const HINT_MESSAGE = {
 const ERROR_MESSAGE = {
   validateNumber: '[ERROR]: 숫자를 입력해주세요.',
   validateDuplicate: '[ERROR]: 입력한 숫자가 중복됩니다.',
-  validateNumberRange: '[ERROR]: 숫자는 1부터 9사이의 3자리 수여야만 합니다.',
+  validateNumberRange: `[ERROR]: 숫자는 1부터 9사이의 ${BALL_SIZE}자리 수여야만 합니다.`,
   validateGameOption: '[ERROR]: 숫자를 입력해주세요. (1 또는 2)'
 }
 
