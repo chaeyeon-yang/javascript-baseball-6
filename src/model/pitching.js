@@ -11,6 +11,17 @@ class Pitching {
     }
     return STRIKE_COUNT;
   }
+
+  // 볼 개수를 반환하는 함수
+  countBall(userBall, computerBall) {
+    const BALL_COUNT = 0;
+    for (let i = 0; i < BALL_SIZE; i++) {
+      if (computerBall.includes(userBall[i])) {
+        BALL_COUNT += 1;
+    }
+    return BALL_COUNT;
+    }
+  }
 }
 
 export default Pitching;
