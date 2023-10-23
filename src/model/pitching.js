@@ -1,13 +1,5 @@
 import { BALL_SIZE } from '../utils/constant'
 class Pitching {
-
-  // 사용자가 공을 모두 맞혔는지 판단하는 함수
-  isMatching(userBall, computerBall) {
-    if (this.countStrike(userBall, computerBall) === 3) {
-      return true;
-    }
-    return false;
-  }
   
   // 스트라이크 개수를 반환하는 함수
   countStrike(userBall, computerBall) {
