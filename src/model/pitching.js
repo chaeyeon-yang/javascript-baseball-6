@@ -19,13 +19,13 @@ class Pitching {
   }
 
   // 볼 개수를 반환하는 함수
-  countBall(userBall) {
+  countBall(userBall, strikeCount) {
     const BALL_COUNT = 0;
     for (let i = 0; i < BALL_SIZE; i++) {
       if (this.#computerBall.includes(userBall[i])) {
         BALL_COUNT += 1;
     }
-    return BALL_COUNT;
+    return Math.abs(BALL_COUNT - strikeCount);
     }
   }
 
