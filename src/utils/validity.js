@@ -1,11 +1,18 @@
-import { Random } from '@woowacourse/mission-utils';
+import constant from './constant';
 
-// 임의의 정답 생성 시 각 자릿수의 값이 겹치지 않는지 확인해주는 함수
-function addRandomNumber(answer) {
-  const number = Random.pickNumberInRange(1, 9);
-  if (!answer.includes(number)) {  
-    answer.push(number);
-  }
-};
+// 숫자인지 아닌지 확인해주는 함수
+function isNumber(input) {
+  return !isNaN(input);
+}
 
-export { addRandomNumber }
+// 1~9사이의 3자리 수인지 확인해주는 함수
+function isRange(input) {
+  return /^[1-9]{3}$/.test(input);
+}
+
+// 각 숫자가 중복되는지 확인해주는 함수
+function isDuplicate(input) {
+  return new Set(input).length !== constant.BALL_SIZE;
+}
+
+export { isNumber, isRange, isDuplicate }
