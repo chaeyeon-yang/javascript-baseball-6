@@ -45,6 +45,17 @@ class GameController {
       }
     }
   }
+
+  // 숫자 야구 종료 혹은 재시작
+  gameEndOrRestart() {  
+    const isRestart = this.#inputView.whetherRestart();
+    if (isRestart) {
+      this.#computerBall = this.#computer.generateRandomNumber();
+      this.gameStart();
+    } else {
+      return;
+    }
+  }
 }
 
 export default GameController;

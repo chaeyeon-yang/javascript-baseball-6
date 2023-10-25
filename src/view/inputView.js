@@ -23,6 +23,14 @@ class InputView {
       throw new Error(constant.ERROR_MESSAGE.validateDuplicate);
     }
   }
+
+  // 게임 재시작 여부 받기
+  async whetherRestart() {
+    const WHETHER_RESTART = await Console.readLine(constant.GAME_MESSAGE.input);
+    if (WHETHER_RESTART === '1') return true
+    if (WHETHER_RESTART === '2') return false
+    else throw new Error(constant.ERROR_MESSAGE.validateGameOption)
+  }
 }
 
 export default InputView;
