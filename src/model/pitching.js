@@ -28,11 +28,6 @@ class Pitching {
     return Math.abs(BALL_COUNT - strikeCount);
     }
   }
-
-  // 낫싱 여부를 판단하는 함수
-  isNothing(userBall) {
-    return !countStrike(userBall) && !countBall(userBall) 
-  }
 }
 
 export default Pitching;
