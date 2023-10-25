@@ -1,5 +1,11 @@
+import GameController from './controller/gameController';
+
 class App {
-  async play() {}
+  #gameController = new GameController();
+  play() {
+    this.#gameController.gameStart();
+  }
 }
+
 
 export default App;
