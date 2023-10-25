@@ -17,7 +17,7 @@ class GameController {
   #outputView
   constructor() {
     this.#computer = new Computer();
-    this.#pitching = new Pitching();
+    this.#pitching = new Pitching(this.#computerBall);
     this.#inputView = new InputView();
     this.#outputView = new OutputView();
   }
