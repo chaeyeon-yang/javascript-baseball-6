@@ -1,9 +1,9 @@
-import { Console } from "@woowacourse/mission-utils";
+import { MissionUtils } from "@woowacourse/mission-utils";
 import constant from "../utils/constant";
 import InputView from "../view/inputView";
 import OutputView from "../view/outputView";
 import Pitching from "../model/pitching";
-import Computer from "../model/computer";
+import { BALL_SIZE } from "../utils/constant"
 
 class GameController {
 
@@ -11,35 +11,35 @@ class GameController {
   #userBall
   #computerBall
 
-  #computer
   #pitching
   #inputView
   #outputView
   constructor() {
-    this.#computer = new Computer();
-    this.#pitching = new Pitching(this.#computerBall);
     this.#inputView = new InputView();
     this.#outputView = new OutputView();
   }
-
   // 숫자 야구 시작
   gameStart() {
-    Console.print(constant.GAME_MESSAGE.start);
-    this.#computerBall = this.#computer.generateRandomNumber();
+    const computerBall = this.generateRandomNumber();
+    MissionUtils.Console.print(constant.GAME_MESSAGE.start);
+
+    console.log("컴퓨터 공", computerBall)
+    this.#pitching = new Pitching(this.#computerBall);
     this.gameProgress();
   }
 
   // 숫자 야구 진행
-  gameProgress() {
+  async gameProgress() {
     while (true) {
-      this.#userBall = this.#inputView.getUserInput();
+      this.#userBall = await this.#inputView.getUserInput();
+      console.log("유저 공", this.#userBall)
       const strikeBall = this.#pitching.countStrike(this.#userBall);
-      const ballBall = this.#pitching.countBall(this.#userBall);
+      const ballBall =  this.#pitching.countBall(this.#userBall);
 
-      this.#outputView.judgeBall(strikeBall, ballBall);
+      await this.#outputView.judgeBall(strikeBall, ballBall);
 
-      if (judgeSuccess(strikeBall)) {
-        Console.print(constant.GAME_MESSAGE.success)
+      if (this.#outputView.judgeSuccess(strikeBall)) {
+        MissionUtils.Console.print(constant.GAME_MESSAGE.success)
         this.gameEndOrRestart();
         break;
       }
@@ -47,15 +47,29 @@ class GameController {
   }
 
   // 숫자 야구 종료 혹은 재시작
-  gameEndOrRestart() {  
-    const isRestart = this.#inputView.whetherRestart();
+  async gameEndOrRestart() {  
+    const isRestart = await this.#inputView.whetherRestart();
     if (isRestart) {
-      this.#computerBall = this.#computer.generateRandomNumber();
+      this.#computerBall = this.generateRandomNumber();
       this.gameStart();
     } else {
       return;
     }
   }
+
+    // 임의의 정답을 생성해주는 함수
+  generateRandomNumber() {
+  const ANSWER = [];
+  while(ANSWER.length < BALL_SIZE) {
+    const NUMBER = MissionUtils.Random.pickNumberInRange(1, 9);
+    if (!ANSWER.includes(NUMBER)) {  
+      ANSWER.push(NUMBER);
+    }
+  }
+
+  return ANSWER.join('');
+}
+
 }
 
 export default GameController;

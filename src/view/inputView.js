@@ -1,12 +1,13 @@
 import constant from "../utils/constant"
 import { isDuplicate, isNumber, isRange } from "../utils/validity"
+import { MissionUtils } from "@woowacourse/mission-utils";
 
 class InputView {
 
   // 사용자 입력 받기
-  async getUserInput() {
-    const USER_INPUT = await Console.readLine(constant.GAME_MESSAGE.input)
-    validateUserInput(USER_INPUT);
+  async getUserInput () {
+    const USER_INPUT = await MissionUtils.Console.readLineAsync(constant.GAME_MESSAGE.input)
+    this.validateUserInput(USER_INPUT)
 
     return USER_INPUT;
   }
@@ -26,7 +27,7 @@ class InputView {
 
   // 게임 재시작 여부 받기
   async whetherRestart() {
-    const WHETHER_RESTART = await Console.readLine(constant.GAME_MESSAGE.input);
+    const WHETHER_RESTART = await Console.readLineAsync(constant.GAME_MESSAGE.input);
     if (WHETHER_RESTART === '1') return true
     if (WHETHER_RESTART === '2') return false
     else throw new Error(constant.ERROR_MESSAGE.validateGameOption)
