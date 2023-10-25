@@ -3,11 +3,6 @@ import constant, { BALL_SIZE } from '../utils/constant'
 
 class OutputView {
 
-  #pitching
-  constructor() {
-    this.#pitching = new Pitching();
-  }
-
   // 사용자에게 힌트를 출력하는 함수
   judgeBall(strikeCount, ballCount) {
     const result = [];
