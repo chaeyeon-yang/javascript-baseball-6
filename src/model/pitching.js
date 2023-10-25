@@ -31,7 +31,7 @@ class Pitching {
 
   // 낫싱 여부를 판단하는 함수
   isNothing(userBall) {
-    return !countStrike(userBall) || !countBall(userBall) 
+    return !countStrike(userBall) && !countBall(userBall) 
   }
 }
 
